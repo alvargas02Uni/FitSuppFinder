@@ -1,13 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/home_style.css" type="text/css">
-    <title>FitSuppFinder</title>
+  <meta charset="UTF-8">
+  <title>FitSuppFinder</title>
+  <link rel="stylesheet" type="text/css" href="../static/home_style.css">
 </head>
 <body>
-    <header>
-        <h1 class="title">Bienvenidos a FitSuppFinder</h1>
-    </header>
+  <main>
+    <h1>FitSuppFinder - Comparación de Suplementos Alimenticios</h1>
+    <form method="post" action="compareItems.php">
+      <input type="text" name="query" placeholder="Buscar productos...">
+      <input type="submit" value="Buscar">
+    </form>
+    <section>
+      <h1>Para principiantes: </h1>
+      <p>Hay muchos suplementos que las personas que se dedican al gimnasio de manera semiprofesional suelen tomar. Sin embargo, es importante recordar que cada cuerpo es diferente, y lo que funciona para una persona puede no funcionar para otra. Además, siempre se debe hablar con un profesional de la salud antes de comenzar cualquier régimen de suplementos. Dicho esto, se le proporciona una lista de los suplementos más comúnmente utilizados por los entusiastas del gimnasio:</p>
+      <ul>
+        <li>Proteína en polvo: La proteína es esencial para la reparación y el crecimiento muscular. </li>
+        <li>Creatina: La creatina es una sustancia que se encuentra naturalmente en las células musculares. Ayuda a producir más energía durante los entrenamientos intensos</li>
+        <li>BCAAs: Los BCAAs son tres aminoácidos esenciales: leucina, isoleucina y valina. Los BCAAs pueden ayudar a reducir la fatiga durante el ejercicio</li>
+        <li>Omega-3: Los ácidos grasos Omega-3 son beneficiosos para la salud en general, y también pueden ayudar a reducir la inflamación</li>
+        <li>Glutamina: La glutamina es un aminoácido que puede ayudar a mejorar la recuperación muscular y fortalecer el sistema inmunológico.</li>
+        <li>Vitaminas y minerales: Asegurar una adecuada ingesta de vitaminas y minerales es esencial para la salud en general y el rendimiento en el gimnasio. Algunos de los más importantes incluyen la vitamina D, el zinc, el magnesio y el hierro.</li>
+        <li>Beta-Alanina: Este es un aminoácido no esencial que puede ayudar a combatir la fatiga muscular, permitiendo entrenamientos más intensos y más largos.</li>
+        <li>HMB (Beta-hidroxi beta-metilbutirato): Este es un compuesto que se produce cuando el cuerpo metaboliza el aminoácido leucina. El HMB puede ayudar a prevenir la descomposición muscular y promover el crecimiento muscular.</li>
+        <li>Cafeína: La cafeína es un estimulante que puede aumentar la energía, mejorar el enfoque mental y ayudar a reducir la percepción de esfuerzo durante el ejercicio.</li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
