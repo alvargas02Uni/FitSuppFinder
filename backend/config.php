@@ -1,8 +1,8 @@
 <?php
-    $hostname = 'localhost';  
-    $dbname = '';  
-    $admin_username = '';  
-    $admin_password = '';  
+    $hostname = 'rafadgvc.mysql.database.azure.com';  
+    $dbname = 'FitSuppFinder';  
+    $admin_username = 'rafadgvc';  
+    $admin_password = 'FitSuppFinder1';  
 
     $conn =new PDO("mysql:host=$hostname;dbname=$dbname", $admin_username, $admin_password);
 

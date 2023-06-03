@@ -25,14 +25,14 @@ db = mysql.connector.connect(**config.db_config)
 cursor = db.cursor()
 
 #print("Eliminando tabla")
-#query = "DROP TABLE IF EXISTS productsHSN2 CASCADE;"
+#query = "DROP TABLE IF EXISTS productsHSN CASCADE;"
 #cursor.execute(query)
 #print("Creando tabla")
-#query = "CREATE TABLE productsHSN2 (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL, brand VARCHAR(255) NOT NULL, price DECIMAL(10,2) NOT NULL, quantity FLOAT, measure VARCHAR(100), url VARCHAR(255));"
+#query = "CREATE TABLE productsHSN (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL, brand VARCHAR(255) NOT NULL, price DECIMAL(10,2) NOT NULL, quantity FLOAT, measure VARCHAR(100), url VARCHAR(255));"
 #cursor.execute(query)
 
 
-url = f"https://www.hsnstore.com/nutricion-deportiva?p=12"
+url = f"https://www.hsnstore.com/nutricion-deportiva?p=1"
 print(f"Revisando pagina: {url}")
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
@@ -70,7 +70,7 @@ for product in products:
                     price = 0.0
 
                 if price > 0:
-                    query = "INSERT INTO productsHSN2 (name, brand, price, quantity, measure, url) VALUES (%s, %s, %s, %s, %s, %s)"
+                    query = "INSERT INTO productsHSN (name, brand, price, quantity, measure, url) VALUES (%s, %s, %s, %s, %s, %s)"
                     values = (name, brand, price, 1, "kg", product_url)
                     cursor.execute(query, values)
         except NoSuchElementException:

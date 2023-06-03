@@ -10,10 +10,10 @@ db = mysql.connector.connect(**config.db_config)
 cursor = db.cursor()
 
 query = "DROP TABLE IF EXISTS productsMyProtein CASCADE;"
-cursor.execute(query)
+#cursor.execute(query)
 
 query = "CREATE TABLE productsMyProtein ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL, brand VARCHAR(255) NOT NULL, flavor VARCHAR(100), price DECIMAL(10,2) NOT NULL, quantity FLOAT, measure VARCHAR(100), url VARCHAR(255));"
-cursor.execute(query)
+#cursor.execute(query)
 
 for i in range(1, 3):
     cursor = db.cursor()

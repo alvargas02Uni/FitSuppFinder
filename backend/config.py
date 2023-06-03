@@ -1,7 +1,7 @@
 # config.py
 db_config = {
-    'host': 'localhost',
-    'user': '',
-    'password': '',
-    'database': ''
+    'host': 'rafadgvc.mysql.database.azure.com',
+    'user': 'rafadgvc',
+    'password': 'FitSuppFinder1',
+    'database': 'FitSuppFinder'
 }
