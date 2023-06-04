@@ -10,7 +10,7 @@ app = Flask(__name__, static_folder=os.path.join(APP_ROOT, 'static'))
 
 @app.route('/')
 def hello_world():
-    return render_template('index.html')
+    return render_template('../templates/index.html')
 
 if __name__ == '__main__':
     app.run()
