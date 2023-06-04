@@ -3,17 +3,23 @@ include '../backend/config.php';
 
 $query = $_POST['query'];
 
+
 // Consulta en la tabla productsHSN
-$hsnQuery = $conn->prepare("SELECT * FROM productsHSN2 WHERE name LIKE ?");
+$hsnQuery = $conn->prepare("SELECT * FROM productsHSN WHERE name LIKE ?");
 $hsnQuery->execute(["%$query%"]);
 
 // Consulta en la tabla productsMyProtein
 $myProteinQuery = $conn->prepare("SELECT * FROM productsMyProtein WHERE name LIKE ?");
 $myProteinQuery->execute(["%$query%"]);
 
+// Consulta en la tabla productsMyProtein
+$AmazonQuery = $conn->prepare("SELECT * FROM productsAmazon WHERE name LIKE ?");
+$AmazonQuery->execute(["%$query%"]);
+
 // Comparación y determinación de los mejores productos
 $productsHSN = array();
 $productsMP = array();
+$productsAmazon = array();
 $products = array();
 
 while ($row = $hsnQuery->fetch()) {
@@ -26,10 +32,15 @@ while ($row = $myProteinQuery->fetch()) {
     $products[] = $row;
 }
 
+while ($row = $AmazonQuery->fetch()) {
+    $productsAmazon[] = $row;
+    $products[] = $row;
+}
+
 sortProducts($productsHSN);
 sortProducts($productsMP);
+sortProducts($productsAmazon);
 sortProducts($products);
-
 
 // Mostrar los resultados en la página HTML
 echo '<!DOCTYPE html>';
@@ -82,9 +93,23 @@ if (!empty($productsHSN) || !empty($productsMP)) {
     else{
         echo '<p>No se encontraron resultados para MyProtein</p>';
     }
+    if (!empty($productsAmazon)) {
+        $product = $productsAmazon[0];
+            echo '    <tr>';
+            echo '      <td>Amazon</td>';
+            echo '      <td>' . $product['brand'] . '</td>';
+            echo '      <td>' . $product['name'] . '</td>';
+            echo '      <td>' . $product['price'] . '</td>';
+            echo '      <td>' . $product['quantity'] . ' ' . $product['measure'] . '</td>';
+            echo '      <td><a href="'.$product['url'].'">Enlace a pantalla de compra</td>';
+            echo '    </tr>';
+    }
+    else{
+        echo '<p>No se encontraron resultados para Amazon</p>';
+    }
     //foreach ($products as $product){
     $product = $products[0];
-        echo '    <tr>';
+        echo '    <tr id="best">';
         echo '      <td>Mejor de todos</td>';
         echo '      <td>' . $product['brand'] . '</td>';
         echo '      <td>' . $product['name'] . '</td>';
