@@ -8,7 +8,7 @@
 <body>
   <main>
     <h1>FitSuppFinder - Comparación de Suplementos Alimenticios</h1>
-    <form method="post" action="compareItems.php">
+    <form method="POST" action="{{ url_for('results') }}">
       <input type="text" name="query" placeholder="Buscar productos...">
       <input type="submit" value="Buscar">
     </form>
